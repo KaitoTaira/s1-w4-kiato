@@ -21,6 +21,14 @@ public class Name {
        return myFirst + " " + myMiddle + " " + myLast;
     }
 
+    public String nickName(){
+      return myFirst.substring(0,1) + myLast.substring(0,2);
+    }
+
+    public String initials(){
+      return myFirst.substring(0,1) + myMiddle.substring(0,1) + myLast.substring(0,1);
+    }
+
     private String fixCase(String namePart){
       namePart = namePart.toLowerCase().trim();
       namePart = namePart.substring(0,1).toUpperCase() + namePart.substring(1);
