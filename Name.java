@@ -5,12 +5,12 @@ public class Name {
     private String myLast;
     
     public Name (String first, String middle, String last) {
-       myFirst = first;
-       myMiddle = middle;
-       myLast = last;
-       fixFirst ( );
-       fixMiddle ( );
-       fixLast ( );
+       myFirst = fixCase(first);
+       myMiddle = fixCase(middle);
+       myLast = fixCase(last);
+       fixCase (myFirst);
+       fixCase (myMiddle);
+       fixCase (myLast);
     }
     
     public String lastFirst ( ) {
@@ -19,6 +19,12 @@ public class Name {
     
     public String fullName ( ) {
        return myFirst + " " + myMiddle + " " + myLast;
+    }
+
+    private String fixCase(String namePart){
+      namePart = namePart.toLowerCase().trim();
+      namePart = namePart.substring(0,1).toUpperCase() + namePart.substring(1);
+      return namePart;
     }
     
     // bad style
